@@ -17,7 +17,12 @@ public class CraftPersonIndent extends PersonIdent {
 
     @Override
     public boolean equals(Object object) {
-        return object instanceof PersonIdent && object.hashCode() == hashCode();
+        if (object instanceof PersonIdent) {
+            if (object.hashCode() == hashCode())
+                return true;
+            return ((PersonIdent) object).getName().equalsIgnoreCase(getName());
+        }
+        return false;
     }
 
     @Override
