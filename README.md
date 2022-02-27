@@ -8,10 +8,24 @@ Allows you to retrieve some information from your git repository.
 
 #### repository:
 ```xml
+    <pluginRepositories>
+    <pluginRepository>
+        <id>mrcubee-public</id>
+        <name>MrCubee</name>
+        <url>https://nexus.mrcubee.net/repository/minecraft/</url>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </pluginRepository>
+</pluginRepositories>
+
 <repositories>
     <repository>
         <id>mrcubee-minecraft</id>
-        <url>http://nexus.mrcubee.net/repository/minecraft/</url>
+        <url>https://nexus.mrcubee.net/repository/minecraft/</url>
     </repository>
 </repositories>
 ```
