@@ -8,7 +8,7 @@ Allows you to retrieve some information from your git repository.
 
 #### repository:
 ```xml
-    <pluginRepositories>
+<pluginRepositories>
     <pluginRepository>
         <id>mrcubee-public</id>
         <name>MrCubee</name>
