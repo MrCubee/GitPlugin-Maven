@@ -70,7 +70,6 @@ public class Parse extends AbstractMojo {
 
         if (properties == null || repository == null)
             return;
-
         revWalk = new RevWalk(repository);
         authors = new HashSet<String>();
         properties.setProperty(PROPERTY_BRANCH_NAME, this.branchName = repository.getBranch());
@@ -122,9 +121,9 @@ public class Parse extends AbstractMojo {
                 return;
             }
             registerLastCommitProperties(properties, new RevWalk(repository).parseCommit(lastCommitId));
+            getLog().info("Git commits parsed.");
         } catch (IOException exception) {
             getLog().error(exception);
         }
-        getLog().info("Git commits parsed.");
     }
 }
