@@ -108,12 +108,12 @@ public class Parse extends AbstractMojo {
             getLog().error("Maven project is null.");
             return;
         }
+        properties = project.getProperties();
         if (this.useParent) {
             getLog().info("Using project parent.");
             project = project.getParent();
         }
         getLog().info("Parsing git repository...");
-        properties = project.getProperties();
         try {
             git = Git.open(project.getBasedir());
             repository = git.getRepository();
