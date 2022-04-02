@@ -30,6 +30,9 @@ public class Parse extends AbstractMojo {
     @Parameter(property = "project", readonly = false)
     private MavenProject project;
 
+    @Parameter(property = "git.project.use_parent", readonly = false, defaultValue = "false")
+    private boolean useParent;
+
     @Parameter(property = PROPERTY_BRANCH_NAME, readonly = false, defaultValue = "none")
     private String branchName;
 
@@ -104,6 +107,10 @@ public class Parse extends AbstractMojo {
         if (project == null) {
             getLog().error("Maven project is null.");
             return;
+        }
+        if (this.useParent) {
+            getLog().info("Using project parent.");
+            project = project.getParent();
         }
         getLog().info("Parsing git repository...");
         properties = project.getProperties();
